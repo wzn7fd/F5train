@@ -3,6 +3,11 @@
   hosts: localhost
   connection: local
   gather_facts: no
+ 
+ vars:
 
+ vars_files:
+
+ tasks:
 
 ...
