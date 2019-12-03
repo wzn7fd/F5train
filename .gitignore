@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+#ignor cred files
+**creds
+
 # Distribution / packaging
 .Python
 build/
