@@ -5,16 +5,19 @@
   gather_facts: no
 
   vars:
+    uri_method: POST
+    bigip_addr: "3.11.30.0"
 
   vars_files:
+    - ../creds/aws_creds.yaml
 
   tasks:
   - name: Create a JIRA issue
     uri:
-      url: https://3.11.30.0/mgmt/shared/appsvcs/declare
-      user: admin
-      password: awsuser123!!
-      method: POST
+      url: https://{{ bigip_addr }}/mgmt/shared/appsvcs/declare
+      user: "{{ bigip_user }}"
+      password: "{{ bigip_pass }}"
+      method: "{{ uri_method }}"
       body: "{{ lookup('file','f5conf.json') }}"
       force_basic_auth: yes
       status_code: 200
