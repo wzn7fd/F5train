@@ -1,13 +1,23 @@
 ---
-- name: DEPLOY AS3 DECLARATION
-  hosts: localhost
-  connection: local
-  gather_facts: no
- 
- vars:
+- name: DEPLOY AS3 DECLARATION
+  hosts: localhost
+  connection: local
+  gather_facts: no
 
- vars_files:
+  vars:
 
- tasks:
+  vars_files:
 
+  tasks:
+  - name: Create a JIRA issue
+    uri:
+      url: https://3.11.30.0/mgmt/shared/appsvcs/declare
+      user: admin
+      password: awsuser123!!
+      method: POST
+      body: "{{ lookup('file','f5conf.json') }}"
+      force_basic_auth: yes
+      status_code: 200
+      validate_certs: no
+      body_format: json
 ...
