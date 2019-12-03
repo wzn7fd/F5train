@@ -9,7 +9,7 @@
     bigip_addr: "3.11.30.0"
 
   vars_files:
-    - ../creds/aws_creds.yaml
+    - ./creds/aws_creds.yaml
 
   tasks:
   - name: Create a JIRA issue
