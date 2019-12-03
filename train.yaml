@@ -1,0 +1,8 @@
+---
+- name: DEPLOY AS3 DECLARATION
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+
+...
